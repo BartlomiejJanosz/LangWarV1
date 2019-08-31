@@ -18,7 +18,7 @@ namespace LangWarV1
     {
         private string _baseAddress = "http://localhost:12345/";
         private bool _isConnectedToServer = false;
-        private int _waitingTime = 10;
+        private int _waitingTimeForOtherPlayer = 10;
         private bool _thisStationSetUpANewGame = false;
  
         public menuForm()
@@ -69,7 +69,7 @@ namespace LangWarV1
             if(_isConnectedToServer)
             {
                 _thisStationSetUpANewGame = true;
-                createGameButton.Text = "Oczekiwanie na przeciwnika (" + _waitingTime.ToString() + "s" + ")";
+                createGameButton.Text = "Oczekiwanie na przeciwnika (" + _waitingTimeForOtherPlayer.ToString() + "s" + ")";
                 CheckIfSomeoneJoinedToGameTimer.Start();
                 EnableButtons(false);
                 AddPlayerToWaitingRoom(playerNameTextBox.Text);
@@ -177,7 +177,7 @@ namespace LangWarV1
             waitForOtherPlayerTimer.Stop();
             isConnectedTimer.Stop();
             CheckIfSomeoneJoinedToGameTimer.Stop();
-            CheckIfSomeoneSetUpAnewGame.Stop();
+            CheckIfSomeoneSetUpAnewGameTimer.Stop();
         }
 
         private void PlayerNameTextBox_TextChanged(object sender, EventArgs e)
@@ -204,13 +204,13 @@ namespace LangWarV1
         {  
             if(_isConnectedToServer)
             {
-                _waitingTime -= 1;
-                createGameButton.Text = "Oczekiwanie na przeciwnika (" + _waitingTime.ToString() + "s" + ")";
-                if (_waitingTime == 0)
+                _waitingTimeForOtherPlayer -= 1;
+                createGameButton.Text = "Oczekiwanie na przeciwnika (" + _waitingTimeForOtherPlayer.ToString() + "s" + ")";
+                if (_waitingTimeForOtherPlayer == 0)
                 {
                     _thisStationSetUpANewGame = false;
                     waitForOtherPlayerTimer.Stop();
-                    _waitingTime = 10;
+                    _waitingTimeForOtherPlayer = 10;
                     playerNameTextBox.Enabled = true;
                     DeletePlayersFromWaitingRoom();
                     CheckIfSomeoneJoinedToGameTimer.Stop();
@@ -252,9 +252,9 @@ namespace LangWarV1
                             var nameOfOpponent = lastContentOfWaitingRoom.Substring(index + 1);
                             Player player = new Player()
                             {
+                                //PlayerId = 2,
                                 Name = nameOfOpponent,
                                 JoinToExistingGame = false
-
                             };
 
                             StopAllTimers();
@@ -276,11 +276,11 @@ namespace LangWarV1
         {
             if(_isConnectedToServer)
             {
-                DisableButtons();
+                DisableCreateNewGameButton();
             }     
         }
 
-        private async void DisableButtons()
+        private async void DisableCreateNewGameButton()
         {
             if (!_thisStationSetUpANewGame)
             {

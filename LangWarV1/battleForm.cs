@@ -32,14 +32,8 @@ namespace LangWarV1
 
         private void battleForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            DeleteFilesFromServer();
             menuForm menuForm = new menuForm();
             menuForm.Show();
-        }
-
-        private async void DeleteFilesFromServer()
-        {
-            //To be done
         }
     }
 }

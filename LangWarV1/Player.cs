@@ -9,6 +9,9 @@ namespace LangWarV1
 {
     public class Player
     {
+        //[JsonProperty("playerId")]
+        //public int PlayerId { get; set; }
+
         [JsonProperty("name")]
         public string Name { get; set; }
 

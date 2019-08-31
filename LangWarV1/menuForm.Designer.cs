@@ -37,16 +37,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.waitForOtherPlayerTimer = new System.Windows.Forms.Timer(this.components);
             this.CheckIfSomeoneJoinedToGameTimer = new System.Windows.Forms.Timer(this.components);
-            this.CheckIfSomeoneSetUpAnewGame = new System.Windows.Forms.Timer(this.components);
+            this.CheckIfSomeoneSetUpAnewGameTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // createGameButton
             // 
             this.createGameButton.Enabled = false;
-            this.createGameButton.Location = new System.Drawing.Point(16, 73);
-            this.createGameButton.Margin = new System.Windows.Forms.Padding(1);
+            this.createGameButton.Location = new System.Drawing.Point(43, 174);
+            this.createGameButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.createGameButton.Name = "createGameButton";
-            this.createGameButton.Size = new System.Drawing.Size(263, 52);
+            this.createGameButton.Size = new System.Drawing.Size(701, 124);
             this.createGameButton.TabIndex = 0;
             this.createGameButton.Text = "Stwórz grę";
             this.createGameButton.UseVisualStyleBackColor = true;
@@ -55,10 +55,10 @@
             // joinToGameButton
             // 
             this.joinToGameButton.Enabled = false;
-            this.joinToGameButton.Location = new System.Drawing.Point(16, 138);
-            this.joinToGameButton.Margin = new System.Windows.Forms.Padding(1);
+            this.joinToGameButton.Location = new System.Drawing.Point(43, 329);
+            this.joinToGameButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.joinToGameButton.Name = "joinToGameButton";
-            this.joinToGameButton.Size = new System.Drawing.Size(263, 52);
+            this.joinToGameButton.Size = new System.Drawing.Size(701, 124);
             this.joinToGameButton.TabIndex = 1;
             this.joinToGameButton.Text = "Dołącz do gry";
             this.joinToGameButton.UseVisualStyleBackColor = true;
@@ -67,10 +67,9 @@
             // isConnectedLabel
             // 
             this.isConnectedLabel.AutoSize = true;
-            this.isConnectedLabel.Location = new System.Drawing.Point(14, 14);
-            this.isConnectedLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.isConnectedLabel.Location = new System.Drawing.Point(37, 33);
             this.isConnectedLabel.Name = "isConnectedLabel";
-            this.isConnectedLabel.Size = new System.Drawing.Size(35, 13);
+            this.isConnectedLabel.Size = new System.Drawing.Size(93, 32);
             this.isConnectedLabel.TabIndex = 2;
             this.isConnectedLabel.Text = "label1";
             // 
@@ -81,20 +80,19 @@
             // 
             // playerNameTextBox
             // 
-            this.playerNameTextBox.Location = new System.Drawing.Point(103, 45);
-            this.playerNameTextBox.Margin = new System.Windows.Forms.Padding(1);
+            this.playerNameTextBox.Location = new System.Drawing.Point(275, 107);
+            this.playerNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.playerNameTextBox.Name = "playerNameTextBox";
-            this.playerNameTextBox.Size = new System.Drawing.Size(176, 20);
+            this.playerNameTextBox.Size = new System.Drawing.Size(463, 38);
             this.playerNameTextBox.TabIndex = 3;
             this.playerNameTextBox.TextChanged += new System.EventHandler(this.PlayerNameTextBox_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 47);
-            this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label1.Location = new System.Drawing.Point(51, 112);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 13);
+            this.label1.Size = new System.Drawing.Size(192, 32);
             this.label1.TabIndex = 4;
             this.label1.Text = "NazwaGracza";
             // 
@@ -105,24 +103,26 @@
             // 
             // CheckIfSomeoneJoinedToGameTimer
             // 
+            this.CheckIfSomeoneJoinedToGameTimer.Interval = 10;
             this.CheckIfSomeoneJoinedToGameTimer.Tick += new System.EventHandler(this.CheckIfSomeoneJoinedToGameTimer_Tick);
             // 
-            // CheckIfSomeoneSetUpAnewGame
+            // CheckIfSomeoneSetUpAnewGameTimer
             // 
-            this.CheckIfSomeoneSetUpAnewGame.Enabled = true;
-            this.CheckIfSomeoneSetUpAnewGame.Tick += new System.EventHandler(this.CheckIfSomeoneSetUpAnewGame_Tick);
+            this.CheckIfSomeoneSetUpAnewGameTimer.Enabled = true;
+            this.CheckIfSomeoneSetUpAnewGameTimer.Interval = 10;
+            this.CheckIfSomeoneSetUpAnewGameTimer.Tick += new System.EventHandler(this.CheckIfSomeoneSetUpAnewGame_Tick);
             // 
             // menuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 208);
+            this.ClientSize = new System.Drawing.Size(779, 484);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.playerNameTextBox);
             this.Controls.Add(this.isConnectedLabel);
             this.Controls.Add(this.joinToGameButton);
             this.Controls.Add(this.createGameButton);
-            this.Margin = new System.Windows.Forms.Padding(1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "menuForm";
             this.Text = "Menu";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.menuForm_FormClosed);
@@ -141,7 +141,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer waitForOtherPlayerTimer;
         private System.Windows.Forms.Timer CheckIfSomeoneJoinedToGameTimer;
-        private System.Windows.Forms.Timer CheckIfSomeoneSetUpAnewGame;
+        private System.Windows.Forms.Timer CheckIfSomeoneSetUpAnewGameTimer;
     }
 }
 
