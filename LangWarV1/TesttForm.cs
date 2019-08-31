@@ -34,7 +34,16 @@ namespace LangWarV1
 
             using (HttpClient httpClient = new HttpClient())
             {
-                await httpClient.PostAsync(_baseAddress + "api/values", httpContent);
+                await httpClient.PostAsync(_baseAddress + "api/values/battleInfo", httpContent);
+            }
+        }
+
+        private async void Button1_Click(object sender, EventArgs e)
+        {
+            using (HttpClient httpClient = new HttpClient())
+            {
+                var httpResponse = await httpClient.GetAsync(_baseAddress + "api/values/battleInfo/1");
+                var resultasstring = httpResponse.Content.ReadAsStringAsync().Result;
             }
         }
     }

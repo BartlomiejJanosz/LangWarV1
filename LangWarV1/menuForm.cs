@@ -32,7 +32,7 @@ namespace LangWarV1
             {
                 try
                 {
-                    HttpResponseMessage response = await httpClient.GetAsync(_baseAddress + "api/values/0");
+                    HttpResponseMessage response = await httpClient.GetAsync(_baseAddress + "api/values/-1");
                     if (response.IsSuccessStatusCode)
                     {
                         _isConnectedToServer = true;
